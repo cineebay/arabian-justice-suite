@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ExpoArabic Font Family */
+@font-face {
+  font-family: 'ExpoArabic';
+  src: url('/fonts/ExpoArabic-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ExpoArabic';
+  src: url('/fonts/ExpoArabic-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Rashed Aldawsari Lawfirm Design System */
+@layer base {
+  :root {
+    /* Core Brand Colors - Deep Teal & Bronze Gold (matching rashedlawfirm.sa) */
+    --teal: 175 85% 22%;
+    --teal-light: 175 70% 30%;
+    --teal-dark: 175 90% 18%;
+    --gold: 30 45% 45%;
+    --gold-light: 35 50% 55%;
+    --gold-dark: 28 40% 38%;
+    --white: 0 0% 100%;
+    
+    /* Background & Surfaces */
+    --background: 0 0% 98%;
+    --foreground: 175 85% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 175 85% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 175 85% 15%;
+    
+    /* Primary - Deep Teal */
+    --primary: 175 85% 22%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Bronze Gold */
+    --secondary: 30 45% 45%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Navy for dark elements */
+    --navy: 175 85% 18%;
+    --navy-light: 175 70% 28%;
+    
+    /* Muted */
+    --muted: 0 0% 92%;
+    --muted-foreground: 175 30% 40%;
+    
+    /* Accent - Light Gold */
+    --accent: 35 50% 55%;
+    --accent-foreground: 175 85% 15%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Success */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 175 85% 15%;
+    
+    /* Border & Input */
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 30 45% 45%;
+    
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 175 85% 18%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 30 45% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 175 70% 25%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 175 70% 25%;
+    --sidebar-ring: 30 45% 45%;
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(30, 45%, 45%) 0%, hsl(35, 50%, 55%) 100%);
+    --gradient-navy: linear-gradient(135deg, hsl(175, 85%, 22%) 0%, hsl(175, 70%, 30%) 100%);
+    --gradient-premium: linear-gradient(135deg, hsl(175, 85%, 18%) 0%, hsl(175, 70%, 28%) 50%, hsl(30, 45%, 45%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(175 85% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(175 85% 15% / 0.1), 0 2px 4px -2px hsl(175 85% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(175 85% 15% / 0.1), 0 4px 6px -4px hsl(175 85% 15% / 0.1);
+    --shadow-gold: 0 4px 14px 0 hsl(30 45% 45% / 0.3);
+  }
+
+  .dark {
+    --background: 175 85% 8%;
+    --foreground: 0 0% 95%;
+    
+    --card: 175 85% 12%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 175 85% 12%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 30 45% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 175 70% 25%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 175 45% 15%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 35 50% 55%;
+    --accent-foreground: 175 85% 15%;
+    
+    --border: 175 45% 20%;
+    --input: 175 45% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    direction: rtl;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-expo antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foreground;
+  }
+}
+
+@layer components {
+  /* Gold Button */
+  .btn-gold {
+    @apply bg-secondary text-secondary-foreground font-semibold px-6 py-3 rounded-lg 
+           transition-all duration-300 hover:shadow-gold hover:scale-[1.02] active:scale-[0.98];
+  }
+  
+  /* Teal Button */
+  .btn-navy {
+    @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg 
+           transition-all duration-300 hover:bg-teal-light active:scale-[0.98];
+  }
+  
+  /* Glass Card */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl shadow-md;
+  }
+  
+  /* Gold Accent Border */
+  .gold-border {
+    @apply border-2 border-secondary;
+  }
+  
+  /* Section Header */
+  .section-header {
+    @apply text-2xl font-bold text-foreground flex items-center gap-3;
+  }
+  
+  /* Mobile Bottom Nav */
+  .mobile-nav-item {
+    @apply flex flex-col items-center gap-1 py-2 px-4 text-muted-foreground 
+           transition-colors duration-200;
+  }
+  
+  .mobile-nav-item.active {
+    @apply text-secondary;
+  }
+  
+  /* Status Badges */
+  .status-pending {
+    @apply bg-warning/20 text-warning border border-warning/30;
+  }
+  
+  .status-confirmed {
+    @apply bg-success/20 text-success border border-success/30;
+  }
+  
+  .status-cancelled {
+    @apply bg-destructive/20 text-destructive border border-destructive/30;
+  }
+  
+  .status-completed {
+    @apply bg-primary/20 text-primary border border-primary/30;
+  }
+}
+
+@layer utilities {
+  /* RTL Support */
+  .rtl {
+    direction: rtl;
+  }
+  
+  .ltr {
+    direction: ltr;
+  }
+  
+  /* Gold Text Gradient */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+  
+  /* Animate Fade In */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animate Slide Up */
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Gold Glow */
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(30 45% 45% / 0.4);
+  }
+  
+  /* Scrollbar Styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-secondary rounded-full;
+  }
+}
